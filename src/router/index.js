@@ -3,6 +3,7 @@ import Router from 'vue-router'
 import Index from '@/components/Index'
 import Token from '@/components/Token'
 import Features from '@/components/Features'
+import Dashboard from '@/components/Dashboard'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/features',
       name: 'Features',
       component: Features
+    },
+    {
+      path: '/dashboard',
+      name: 'Dashboard',
+      component: Dashboard
     }
   ]
 })

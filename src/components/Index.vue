@@ -9,7 +9,7 @@
                     <div class="buttons">
                         <b-row>
                             <b-col md><b-btn class="button" variant="fuji" @click="invite()"><font-awesome-icon :icon="['fab', 'discord']"/> Add to your server</b-btn></b-col>
-                            <b-col md><b-btn class="button" variant="fuji-yellow"><font-awesome-icon :icon="['fas', 'list']"/> View features</b-btn></b-col>
+                            <b-col md><b-btn class="button" variant="fuji-yellow" @click="goToFeatures()"><font-awesome-icon :icon="['fas', 'list']"/> View features</b-btn></b-col>
                         </b-row>
                         
                     </div>
@@ -37,6 +37,9 @@ export default {
         },
         invite(){
             open("https://discordapp.com/api/oauth2/authorize?client_id=307653150515658753&permissions=540339414&scope=bot")
+        },
+        goToFeatures(){
+            this.$router.push('Features')
         }
     }
 }
@@ -44,27 +47,25 @@ export default {
 
 <style>
 
-
-
-
 #index{
     
     padding-top: 90px;
 }
 
 
-body { 
+/* body { 
   background: url(https://images.unsplash.com/photo-1528164344705-47542687000d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1369&q=80) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-}
+} */
 .title{
     font-size: 4em;
-    color: black;
+    color: white;
 }
 .description{
+    color: white;
     font-size: 2.5em;
 }
 .button{
@@ -81,5 +82,6 @@ body {
     }
 }
 @media (min-width: 576px) and (max-width: 767.98px) {}
+
 
 </style>

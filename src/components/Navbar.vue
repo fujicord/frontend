@@ -1,7 +1,7 @@
 <template>
 <div>
   <b-navbar toggleable="sm" type="dark" variant="fuji">
-    <b-navbar-brand href="/">
+    <b-navbar-brand :to="{name: 'Index'}">
       <img src="@/assets/logo-inline.png" height="64" alt="home">
     </b-navbar-brand>
 
@@ -9,22 +9,27 @@
 
     <b-collapse id="nav-collapse" is-nav>
       <b-navbar-nav>
-        <b-nav-item href="/">Home</b-nav-item>
-        <b-nav-item href="/features">Features</b-nav-item>
-        <b-nav-item href="#">Dashboard</b-nav-item>
+        <b-nav-item :to="{name:'Index'}">Home</b-nav-item>
+        <b-nav-item :to="{name:'Features'}">Features</b-nav-item>
+        <b-nav-item :to="{name: 'Dashboard'}">Dashboard</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
-
-        <b-nav-item-dropdown right>
-          <!-- Using 'button-content' slot -->
-          <template v-slot:button-content>
+        <div v-if="isLoggedIn">
+          <b-nav-item-dropdown right>
+            <!-- Using 'button-content' slot -->
+            <template v-slot:button-content>
+              {{token}}
+            </template>
+            <b-dropdown-item @click="logout">Log out</b-dropdown-item>
+          </b-nav-item-dropdown>
+        </div>
+        <div v-else @click="login">
+          <b-nav-item>
             Login
-          </template>
-          <b-dropdown-item href="#">Profile</b-dropdown-item>
-          <b-dropdown-item href="#">Sign Out</b-dropdown-item>
-        </b-nav-item-dropdown>
+          </b-nav-item>
+        </div>
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
@@ -33,7 +38,22 @@
 
 <script>
 export default {
-
+  computed: {
+    token(){
+      return this.$store.state.token
+    },
+    isLoggedIn(){
+      return (this.token != null)
+    }
+  },
+  methods: {
+    login(){
+      this.$store.commit("login")
+    },
+    logout(){
+      this.$store.commit("logout")
+    }
+  }
 }
 </script>
 
