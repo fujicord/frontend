@@ -32,7 +32,7 @@ const store = new Vuex.Store({
   },
   mutations: {
     login (state) {
-      state.window = window.open("https://api.yvan.dev/login", "_blank", "scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=500,height=830")
+      state.window = window.open("https://api.yvan.dev/login", "_blank", "scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,width=500,height=740")
       state.login_window_watcher = setInterval(() => {
         if (state.window.closed){
           if (localStorage.token){
@@ -58,7 +58,3 @@ new Vue({
   components: { App },
   template: '<App/>'
 })
-
-
-
-
