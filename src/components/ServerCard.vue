@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="servercard">
         <b-card no-body class="overflow-hidden" bg-variant="discord-darkest">
             <div class="row">
                 <div class="col-xs-4">

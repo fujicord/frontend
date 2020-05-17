@@ -49,6 +49,9 @@ export default {
 body {
   background: #2c2f33;
 }
+.servercard{
+    margin-top: 10px;
+}
 #dashboard {
   color: white;
 }
