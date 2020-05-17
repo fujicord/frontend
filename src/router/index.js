@@ -4,7 +4,7 @@ import Index from '@/components/Index'
 import Token from '@/components/Token'
 import Features from '@/components/Features'
 import Dashboard from '@/components/Dashboard'
-
+import Server from '@/components/Server'
 Vue.use(Router)
 
 export default new Router({
@@ -29,6 +29,11 @@ export default new Router({
       path: '/dashboard',
       name: 'Dashboard',
       component: Dashboard
+    },
+    {
+      path: '/server/:id',
+      name: 'Server',
+      component: Server
     }
   ]
 })

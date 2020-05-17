@@ -1,6 +1,6 @@
 <template>
 <div>
-  <b-navbar toggleable="sm" type="dark" variant="fuji">
+  <b-navbar toggleable="md" type="dark" variant="fuji">
     <b-navbar-brand :to="{name: 'Index'}">
       <img src="@/assets/logo-inline.png" height="64" alt="home">
     </b-navbar-brand>
@@ -20,7 +20,7 @@
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template v-slot:button-content>
-              {{token}}
+              UserName#0000
             </template>
             <b-dropdown-item @click="logout">Log out</b-dropdown-item>
           </b-nav-item-dropdown>

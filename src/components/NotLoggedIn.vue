@@ -26,6 +26,7 @@ export default {
 <style>
 .login_required{
     color: white;
+    font-size: 32px;
 }
 #login{
     padding-top: 70px;

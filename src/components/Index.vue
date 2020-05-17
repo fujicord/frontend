@@ -64,6 +64,9 @@ export default {
     font-size: 4em;
     color: white;
 }
+.title::selection{
+    background: none;
+}
 .description{
     color: white;
     font-size: 2.5em;

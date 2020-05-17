@@ -50,12 +50,14 @@ $theme-colors: map-merge(
     'light': $light,
     'dark': $dark,
     'fuji': $fuji,
-    "fuji-yellow": $fuji-yellow
+    "fuji-yellow": $fuji-yellow,
+    "discord-darkest": #23272A
   ),
   $theme-colors
 );
 
 @import 'node_modules/bootstrap/scss/bootstrap';
+
 @import 'node_modules/bootstrap-vue/src/index.scss';
 
 body{
