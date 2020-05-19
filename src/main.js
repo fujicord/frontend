@@ -5,13 +5,17 @@ import App from './App'
 import router from './router'
 import vueHeadful from 'vue-headful'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faBars, faUser, faList } from '@fortawesome/free-solid-svg-icons'
+import { faBars, faList } from '@fortawesome/free-solid-svg-icons'
 import { faDiscord } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
+Vue.use(VueAxios, axios)
 
 // Install BootstrapVue
 Vue.use(BootstrapVue)
@@ -28,7 +32,9 @@ const store = new Vuex.Store({
   state:{
       window: null,
       login_window_watcher: null,
-      token: localStorage.getItem("token")
+      token: localStorage.getItem("token"),
+      user: null,
+      guilds: null
   },
   mutations: {
     login (state) {
@@ -37,6 +43,8 @@ const store = new Vuex.Store({
         if (state.window.closed){
           if (localStorage.token){
             state.token = localStorage.getItem("token")
+            this.commit("getUser")
+            this.commit("getGuilds")
           }
           clearInterval(state.login_window_watcher)
         }
@@ -44,7 +52,19 @@ const store = new Vuex.Store({
     },
     logout(state){
       localStorage.removeItem("token")
+      state.user = null
       state.token = null
+      state.guilds = null
+    },
+    getUser(state){
+      if(state.token){
+        axios.get("https://api.yvan.dev/api/v1/user/user", {headers: {Authorization:`Bearer ${state.token}`}}).then(response=> state.user = response.data.data)
+      }
+    },
+    getGuilds(state){
+      if(state.token){
+        axios.get("https://api.yvan.dev/api/v1/user/guilds", {headers: {Authorization: `Bearer ${state.token}`}}).then(response => state.guilds = response.data.guilds)
+      }
     }
   }
 })

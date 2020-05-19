@@ -20,7 +20,7 @@
           <b-nav-item-dropdown right>
             <!-- Using 'button-content' slot -->
             <template v-slot:button-content>
-              UserName#0000
+              {{user.username}}#{{user.discriminator}}
             </template>
             <b-dropdown-item @click="logout">Log out</b-dropdown-item>
           </b-nav-item-dropdown>
@@ -44,6 +44,9 @@ export default {
     },
     isLoggedIn(){
       return (this.token != null)
+    },
+    user(){
+      return this.$store.state.user
     }
   },
   methods: {
@@ -53,6 +56,9 @@ export default {
     logout(){
       this.$store.commit("logout")
     }
+  },
+  mounted(){
+    this.$store.commit("getUser")
   }
 }
 </script>

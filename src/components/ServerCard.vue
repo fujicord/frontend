@@ -9,7 +9,7 @@
                     <b-card-body :title="ServerName">
                         <b-card-text>
                             <div class="button" v-if="isBotPresent"><b-btn variant="fuji-yellow" @click="manage">Manage server</b-btn></div>
-                            <div class="button" v-else><b-btn>Invite the bot</b-btn></div>
+                            <div class="button" v-else><b-btn @click="invite">Invite the bot</b-btn></div>
                         </b-card-text>
                     </b-card-body>
 
@@ -27,7 +27,7 @@ export default {
             this.$router.push({name: "Server", params: {id: this.ServerID}})
         },
         invite(){
-
+            this.$store.commit("getUser")
         }
     }
 }

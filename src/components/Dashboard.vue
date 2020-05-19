@@ -16,9 +16,9 @@
               <div class="col-md col-lg"></div>
               <div class="col-md-6 col-lg-8">
                   <div class="list">
-                      <ServerCard ServerName="Fujibot" Icon="https://cdn.discordapp.com/icons/311081903933358081/c8fcfb9e4f9f1f8d6789423917ee515f.png?size=1024" ServerID="311081903933358081" :isBotPresent="true"></ServerCard>
-                      <ServerCard ServerName="Fujibot" Icon="https://cdn.discordapp.com/icons/311081903933358081/c8fcfb9e4f9f1f8d6789423917ee515f.png?size=1024" ServerID="311081903933358081" :isBotPresent="false"></ServerCard>
-                      <ServerCard ServerName="Fujibot" Icon="https://cdn.discordapp.com/icons/311081903933358081/c8fcfb9e4f9f1f8d6789423917ee515f.png?size=1024" ServerID="311081903933358081"></ServerCard>
+                        <div class="servers" v-for="server in servers" v-bind:key="server.id">
+                          <ServerCard class="lol" :ServerID="server.id" :ServerName="server.name" :isBotPresent="true" Icon="lol.png"></ServerCard>
+                        </div>
                   </div>
               </div>
               <div class="col-md col-lg"></div>
@@ -33,13 +33,23 @@ import NotLoggedIn from "@/components/NotLoggedIn.vue";
 import ServerCard from "@/components/ServerCard.vue";
 export default {
   data() {
-    return {};
+    return {
+        wait_for_login: null
+    }
   },
   components: { NotLoggedIn, ServerCard },
   computed: {
     isLoggedIn() {
       return this.$store.state.token != null;
+    },
+    servers(){
+      return this.$store.state.guilds
     }
+  },
+  methods: {
+  },
+  mounted() {
+    this.$store.commit("getGuilds")
   }
 };
 </script>
