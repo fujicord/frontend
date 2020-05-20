@@ -5,8 +5,13 @@
 <script>
 export default {
     mounted(){
-        localStorage.setItem("token", this.$route.query.token)
-        close()
+        if(!this.$route.query.error){
+            localStorage.setItem("token", this.$route.query.token)
+            close()
+        }
+        else if(this.$route.query.error){
+            close()
+        }
     }
 }
 </script>
