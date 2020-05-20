@@ -11,6 +11,7 @@
       <b-navbar-nav>
         <b-nav-item :to="{name:'Index'}">Home</b-nav-item>
         <b-nav-item :to="{name:'Features'}">Features</b-nav-item>
+        <b-nav-item href="https://discord.gg/RDGkKzQ">Support</b-nav-item>
         <b-nav-item :to="{name: 'Dashboard'}">Dashboard</b-nav-item>
       </b-navbar-nav>
 
