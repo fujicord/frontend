@@ -3,7 +3,7 @@
         <b-card no-body class="overflow-hidden" bg-variant="discord-darkest">
             <div class="row">
                 <div class="col-xs-4">
-                    <b-card-img :src="Icon" alt="Server icon" class="rounded-0"></b-card-img>
+                    <b-card-img :src="Icon" alt="Server icon" class="rounded-0" height="128"></b-card-img>
                 </div>
                 <div class="col-xs-8">
                     <b-card-body :title="ServerName">

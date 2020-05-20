@@ -19,6 +19,7 @@
     "axios": "^0.19.2",
     "bootstrap": "^4.4.1",
     "bootstrap-vue": "^2.13.0",
+    "lodash": "^4.17.15",
     "node-sass": "^4.13.0",
     "popper": "^1.0.1",
     "portal-vue": "^2.1.7",
@@ -26,6 +27,7 @@
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
     "vue-headful": "^2.1.0",
+    "vue-lodash": "^2.1.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.4.0"
   },

@@ -11,11 +11,16 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import VueLodash from 'vue-lodash'
+import lodash from 'lodash'
 
+// name is optional
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
 Vue.use(VueAxios, axios)
+
+Vue.use(VueLodash, { name: 'loadash' , lodash: lodash })
 
 // Install BootstrapVue
 Vue.use(BootstrapVue)
@@ -34,7 +39,7 @@ const store = new Vuex.Store({
       login_window_watcher: null,
       token: localStorage.getItem("token"),
       user: null,
-      guilds: null
+      guilds: []
   },
   mutations: {
     login (state) {
@@ -54,7 +59,7 @@ const store = new Vuex.Store({
       localStorage.removeItem("token")
       state.user = null
       state.token = null
-      state.guilds = null
+      state.guilds = []
     },
     getUser(state){
       if(state.token){

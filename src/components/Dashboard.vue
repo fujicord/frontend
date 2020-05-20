@@ -16,8 +16,8 @@
               <div class="col-md col-lg"></div>
               <div class="col-md-6 col-lg-8">
                   <div class="list">
-                        <div class="servers" v-for="server in servers" v-bind:key="server.id">
-                          <ServerCard class="lol" :ServerID="server.id" :ServerName="server.name" :isBotPresent="true" Icon="lol.png"></ServerCard>
+                        <div class="servers" v-for="server in orderedGuilds" v-bind:key="server.id">
+                          <ServerCard class="lol" :ServerID="server.id" :ServerName="server.name" :isBotPresent="server.botpresent" :Icon="server.icon"></ServerCard>
                         </div>
                   </div>
               </div>
@@ -44,7 +44,10 @@ export default {
     },
     servers(){
       return this.$store.state.guilds
-    }
+    },
+    orderedGuilds() {
+    return this.loadash.orderBy(this.servers, ['botpresent', 'name'], ['desc', 'asc'])
+  }
   },
   methods: {
   },

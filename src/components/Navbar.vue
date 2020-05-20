@@ -46,7 +46,9 @@ export default {
       return (this.token != null)
     },
     user(){
-      return this.$store.state.user
+      if(this.$store.state.user)
+        return this.$store.state.user
+      else return {username: "Loading", discriminator: "Loading"}
     }
   },
   methods: {
