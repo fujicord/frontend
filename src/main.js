@@ -13,10 +13,11 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import VueLodash from 'vue-lodash'
 import lodash from 'lodash'
+import VueHolder from 'vue-holderjs'
 
 // name is optional
 import Vuex from 'vuex'
-
+Vue.use(VueHolder);
 Vue.use(Vuex)
 Vue.use(VueAxios, axios)
 

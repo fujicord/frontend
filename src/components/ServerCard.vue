@@ -2,10 +2,15 @@
     <div class="servercard">
         <b-card no-body class="overflow-hidden" bg-variant="discord-darkest">
             <div class="row">
-                <div class="col-xs-4">
-                    <b-card-img :src="Icon" alt="Server icon" class="rounded-0" height="128"></b-card-img>
+                <div class="col-xs-5">
+                    <div class="serverimg" v-if="Icon">
+                        <b-card-img :src="Icon" alt="Server icon" class="rounded-0 servericon" style="max-width:128px"></b-card-img>
+                    </div>
+                    <div class="serverimg" v-else>
+                        <img class="rounded-0 servericon card-img" v-holder="{text: 'FTG', img: '128x128', bg: '#36393F', pt: 13}" style="" alt="server icon">
+                    </div>
                 </div>
-                <div class="col-xs-8">
+                <div class="col-xs-7">
                     <b-card-body :title="ServerName">
                         <b-card-text>
                             <div class="button" v-if="isBotPresent"><b-btn variant="fuji-yellow" @click="manage">Manage server</b-btn></div>
@@ -27,12 +32,16 @@ export default {
             this.$router.push({name: "Server", params: {id: this.ServerID}})
         },
         invite(){
-            this.$store.commit("getUser")
+            open(`https://discord.com/oauth2/authorize?client_id=505808254690000896&permissions=540339414&scope=bot&guild_id=${this.ServerID}`)
         }
     }
 }
 </script>
 
 <style>
-
+.card-img-top {
+    width: 128px;
+    height: 128px;
+    object-fit: cover;
+}
 </style>

@@ -27,6 +27,7 @@
     "vue": "^2.6.11",
     "vue-axios": "^2.1.5",
     "vue-headful": "^2.1.0",
+    "vue-holderjs": "^1.0.2",
     "vue-lodash": "^2.1.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.4.0"
