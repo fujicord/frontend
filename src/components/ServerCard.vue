@@ -7,7 +7,7 @@
                         <b-card-img :src="Icon" alt="Server icon" class="rounded-0 servericon" style="max-width:128px"></b-card-img>
                     </div>
                     <div class="serverimg" v-else>
-                        <img class="rounded-0 servericon card-img" v-holder="{text: 'FTG', img: '128x128', bg: '#36393F', pt: 13}" style="" alt="server icon">
+                        <img class="rounded-0 servericon card-img" v-holder="{text: compiledname, img: '128x128', bg: '#36393F', pt: 13}" style="" alt="server icon">
                     </div>
                 </div>
                 <div class="col-xs-7">
@@ -27,6 +27,11 @@
 <script>
 export default {
     props: ["ServerName", "ServerID", "Icon", "isBotPresent"],
+    computed:{
+        compiledname(){
+            return this.ServerName.match(/\b\w/g).join('').toUpperCase()
+        }
+    },
     methods: {
         manage(){
             this.$router.push({name: "Server", params: {id: this.ServerID}})
