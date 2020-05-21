@@ -1,26 +1,23 @@
 <template>
-    <div class="servercard">
-        <b-card no-body class="overflow-hidden" bg-variant="discord-darkest">
-            <div class="row">
-                <div class="col-xs-5">
-                    <div class="serverimg" v-if="Icon">
-                        <b-card-img :src="Icon" alt="Server icon" class="rounded-0 servericon" style="max-width:128px"></b-card-img>
+    <div class="servercard container">
+        <div class="row no-gutters server-row">
+            <div class="col-3-sm no-padding">
+                <div v-if ="Icon"><img :src="Icon" alt="Server icon" class="servericon" height="128" width="128"></div>
+                <div v-else><img class="servericon" v-holder="{text: compiledname, img: '128x128', bg: '#36393F', pt: 13}" alt="Server icon"></div>
+                
+            </div>
+            <div class="col-9-sm">
+                <div class="server-informations">
+                    <div class="server-name">{{ServerName}}</div>
+                    <div v-if="isBotPresent">
+                        <b-btn @click="manage" variant="fuji-yellow">Manage server</b-btn>
                     </div>
-                    <div class="serverimg" v-else>
-                        <img class="rounded-0 servericon card-img" v-holder="{text: compiledname, img: '128x128', bg: '#36393F', pt: 13}" style="" alt="server icon">
+                    <div v-else>
+                        <b-btn @click="invite">Invite the bot</b-btn>
                     </div>
-                </div>
-                <div class="col-xs-7">
-                    <b-card-body :title="ServerName">
-                        <b-card-text>
-                            <div class="button" v-if="isBotPresent"><b-btn variant="fuji-yellow" @click="manage">Manage server</b-btn></div>
-                            <div class="button" v-else><b-btn @click="invite">Invite the bot</b-btn></div>
-                        </b-card-text>
-                    </b-card-body>
-
                 </div>
             </div>
-        </b-card>
+        </div>
     </div>
 </template>
 
@@ -48,5 +45,26 @@ export default {
     width: 128px;
     height: 128px;
     object-fit: cover;
+}
+.server-row{
+    background: #23272A;
+    border-radius: 5px;
+}
+.no-padding{
+    padding-right:0;
+    padding-left:0;
+}
+.server-informations{
+    margin-left: 10px;
+}
+.server-name{
+    padding-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    padding-bottom: 10px;
+}
+.servericon{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
 }
 </style>
