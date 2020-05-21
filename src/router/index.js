@@ -4,7 +4,8 @@ import Index from '@/components/Index'
 import Token from '@/components/Token'
 import Features from '@/components/Features'
 import Dashboard from '@/components/Dashboard'
-import Server from '@/components/Server'
+import Server from '@/components/ServerPage'
+import Overview from '@/components/Server/overview'
 Vue.use(Router)
 
 export default new Router({
@@ -33,7 +34,13 @@ export default new Router({
     {
       path: '/server/:id',
       name: 'Server',
-      component: Server
+      component: Server,
+      children: [
+        {
+          path: "overview",
+          component: Overview
+        }
+      ]
     }
   ]
 })
