@@ -13,15 +13,15 @@
       </div>
       <div class="container">
           <div class="row">
-              <div class="col-md col-lg"></div>
-              <div class="col-md-6 col-lg-8">
+              <div class="col-md"></div>
+              <div class="col-md-8">
                   <div class="list">
                         <div class="servers" v-for="server in orderedGuilds" v-bind:key="server.id">
                           <ServerCard class="lol" :ServerID="server.id" :ServerName="server.name" :isBotPresent="server.botpresent" :Icon="server.icon"></ServerCard>
                         </div>
                   </div>
               </div>
-              <div class="col-md col-lg"></div>
+              <div class="col-md"></div>
           </div>
       </div>
     </div>
