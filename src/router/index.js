@@ -5,7 +5,7 @@ import Token from '@/components/Token'
 import Features from '@/components/Features'
 import Dashboard from '@/components/Dashboard'
 import Server from '@/components/ServerPage'
-import Overview from '@/components/Server/overview'
+import Overview from '@/components/Server/Overview'
 Vue.use(Router)
 
 export default new Router({
