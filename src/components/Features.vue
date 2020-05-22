@@ -1,5 +1,5 @@
 <template>
-  <div>fuck you. (Coming soon)</div>
+  <div>Coming soon (need to design it)</div>
 </template>
 
 <script>

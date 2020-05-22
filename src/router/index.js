@@ -38,6 +38,7 @@ export default new Router({
       children: [
         {
           path: "overview",
+          name: "ServerOverview",
           component: Overview
         }
       ]

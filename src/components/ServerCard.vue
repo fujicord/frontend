@@ -13,7 +13,7 @@
                         <b-btn @click="manage" variant="fuji-yellow">Manage server</b-btn>
                     </div>
                     <div v-else>
-                        <b-btn @click="invite">Invite the bot</b-btn>
+                        <b-btn @click="invite" variant="fuji">Invite the bot</b-btn>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@ export default {
     },
     methods: {
         manage(){
-            this.$router.push({name: "Server", params: {id: this.ServerID}})
+            this.$router.push({name: "ServerOverview", params: {id: this.ServerID}})
         },
         invite(){
             open(`https://discord.com/oauth2/authorize?client_id=505808254690000896&permissions=540339414&scope=bot&guild_id=${this.ServerID}`)
